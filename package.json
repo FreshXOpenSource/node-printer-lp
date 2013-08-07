@@ -2,7 +2,7 @@
     "name"          : "printer-lp",
     "description"   : "Tool to send data to 'lp' binary.",
     "version"       : "1.0.4",
-    "homepage"      : "http://github.com/armetiz/node-printer-lp",
+    "homepage"      : "https://github.com/FreshXOpenSource/node-printer-lp",
     "keywords"      : ["printer", "print", "cups", "lp", "job"],
     "author"        : "Thomas Tourlourat <thomas@tourlourat.com>",
     "main"          : "./printer",
@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "http://github.com/armetiz/node-printer-lp.git"
+        "url": "https://github.com/FreshXOpenSource/node-printer-lp.git"
     },
     "engines" : {
         "node" : ">=0.8.8"
