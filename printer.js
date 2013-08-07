@@ -26,7 +26,8 @@ var argsFactory = function (options) {
     }
     
     if (_.isString(options.username)) {
-        args.push("-U " + options.username);
+        args.push("-U");
+        args.push(options.username);
     }
     
     if (true === options.backwardsCompatibility) {
@@ -34,27 +35,33 @@ var argsFactory = function (options) {
     }
     
     if (_.isString(options.destination)) {
-        args.push("-d " + options.destination);
+        args.push("-d");
+        args.push(options.destination);
     }
     
     if (_.isString(options.hostname)) {
-        args.push("-h " + options.hostname);
+        args.push("-h");
+        args.push(options.hostname);
     }
     
     if (!_.isEmpty(options.numCopies) && _.isNumber(options.numCopies) && options.numCopies > 1) {
-        args.push("-n " + options.numCopies);
+        args.push("-n");
+        args.push(options.numCopies);
     }
     
     if (!_.isEmpty(options.priority) && _.isNumber(options.priority) && options.priority > 1) {
-        args.push("-q " + options.priority);
+        args.push("-q");
+        args.push(options.priority);
     }
     
     if (_.isString(options.media)) {
-        args.push("-o media=" + options.media);
+        args.push("-o");
+        args.push("media=" + options.media);
     }
     
     if (true === options.fitplot) {
-        args.push("-o fitplot");
+        args.push("-o");
+        args.push("fitplot");
     }
     
     return args;
