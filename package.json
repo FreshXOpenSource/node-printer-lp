@@ -5,6 +5,7 @@
     "homepage"      : "https://github.com/FreshXOpenSource/node-printer-lp",
     "keywords"      : ["printer", "print", "cups", "lp", "job"],
     "author"        : "Thomas Tourlourat <thomas@tourlourat.com>",
+    "private": true,
     "main"          : "./printer",
     "bugs" :
     {
