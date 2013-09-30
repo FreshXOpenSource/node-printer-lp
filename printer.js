@@ -38,6 +38,11 @@ var argsFactory = function (options) {
         args.push("-d");
         args.push(options.destination);
     }
+
+    if (_.isString(options.orientation)) {
+        args.push("-o");
+        args.push(options.orientation);
+    }
     
     if (_.isString(options.hostname)) {
         args.push("-h");
