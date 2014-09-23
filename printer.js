@@ -77,14 +77,7 @@ module.exports.printText = function (text, options, identifier) {
     
     var args = argsFactory(options);
     
-    try {
-        var lp = spawn("lp", args);
-    } catch(e) {
-        return {
-            type: 'error',
-            msg: 'Error while executing lp'
-        };
-    }
+    var lp = spawn("lp", args);
 
     lp.stdin.write(text);
     lp.stdin.end();
@@ -100,14 +93,7 @@ module.exports.printFile = function (file, options, identifier) {
     args.push ("--");
     args.push (file);
     
-    try {
-        var lp = spawn("lp", args);
-    } catch(e) {
-        return {
-            type: 'error',
-            msg: 'Error while executing lp'
-        };
-    }
+    var lp = spawn("lp", args);
     
     return new Job(lp, identifier);
 }
