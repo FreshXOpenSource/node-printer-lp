@@ -24,7 +24,7 @@ var argsFactory = function (options) {
     if (true === options.encryption) {
         args.push ("-E");
     }
-    sp
+    
     if (_.isString(options.username)) {
         args.push("-U");
         args.push(options.username);
