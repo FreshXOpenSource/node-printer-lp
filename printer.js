@@ -24,7 +24,7 @@ var argsFactory = function (options) {
     if (true === options.encryption) {
         args.push ("-E");
     }
-    
+    sp
     if (_.isString(options.username)) {
         args.push("-U");
         args.push(options.username);
@@ -76,7 +76,15 @@ module.exports.printText = function (text, options, identifier) {
     options = optionsFactory(options);
     
     var args = argsFactory(options);
-    var lp = spawn("lp", args);
+    
+    try {
+        var lp = spawn("lp", args);
+    } catch(e) {
+        return {
+            type: 'error',
+            msg: 'Error while executing lp'
+        };
+    }
 
     lp.stdin.write(text);
     lp.stdin.end();
@@ -92,7 +100,14 @@ module.exports.printFile = function (file, options, identifier) {
     args.push ("--");
     args.push (file);
     
-    var lp = spawn("lp", args);
+    try {
+        var lp = spawn("lp", args);
+    } catch(e) {
+        return {
+            type: 'error',
+            msg: 'Error while executing lp'
+        };
+    }
     
     return new Job(lp, identifier);
 }
