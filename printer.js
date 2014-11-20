@@ -14,6 +14,7 @@ var optionsFactory = function (options) {
     defaultOptions.priority = 1;
     defaultOptions.media = "a4";
     defaultOptions.fitplot = false;
+    defaultOptions.convertToPS = false;
     
     return _.defaults(options, defaultOptions);
 };
@@ -76,12 +77,22 @@ module.exports.printText = function (text, options, identifier) {
     options = optionsFactory(options);
     
     var args = argsFactory(options);
-    
-    var lp = spawn("lp", args);
 
-    lp.stdin.write(text);
-    lp.stdin.end();
-    
+    var lp;
+
+    if(options.convertToPS == true){
+        // convert to ps before printing using pdftops
+        convert = spawn("pdftops", ["-","-"]);
+        lp = spawn("lp", args);
+        convert.stdin.write(text);
+        convert.stdout.pipe(lp.stdin);
+        convert.stdin.end();
+    } else {
+        lp = spawn("lp", args);
+        lp.stdin.write(text);
+        lp.stdin.end();
+    }
+
     return new Job(lp, identifier);
 }
 
