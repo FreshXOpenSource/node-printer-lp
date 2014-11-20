@@ -100,11 +100,18 @@ module.exports.printFile = function (file, options, identifier) {
     options = optionsFactory(options);
     
     var args = argsFactory(options);
+    var lp;
     
-    args.push ("--");
-    args.push (file);
-    
-    var lp = spawn("lp", args);
-    
+    if(options.convertToPS == true){
+        // convert to ps before printing using pdftops
+        var convert = spawn("pdftops", [file, "-"]);
+        lp = spawn("lp", args);
+        convert.stdout.pipe(lp.stdin);
+    } else {
+        args.push ("--");
+        args.push (file);
+        lp = spawn("lp", args);
+    }
+
     return new Job(lp, identifier);
 }
