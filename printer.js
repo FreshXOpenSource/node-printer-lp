@@ -82,7 +82,7 @@ module.exports.printText = function (text, options, identifier) {
 
     if(options.convertToPS == true){
         // convert to ps before printing using pdftops
-        convert = spawn("pdftops", ["-","-"]);
+        var convert = spawn("pdftops", ["-","-"]);
         lp = spawn("lp", args);
         convert.stdin.write(text);
         convert.stdout.pipe(lp.stdin);
