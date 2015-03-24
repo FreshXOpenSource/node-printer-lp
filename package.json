@@ -1,7 +1,7 @@
 {
     "name"          : "printer-lp-fx",
     "description"   : "Tool to send data to 'lp' binary.",
-    "version"       : "1.1.1",
+    "version"       : "1.1.2",
     "homepage"      : "https://github.com/FreshXOpenSource/node-printer-lp",
     "keywords"      : ["printer", "print", "cups", "lp", "job"],
     "author"        : "Thomas Tourlourat <thomas@tourlourat.com>",
