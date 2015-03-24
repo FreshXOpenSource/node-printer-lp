@@ -13,6 +13,7 @@ var optionsFactory = function (options) {
     defaultOptions.numCopies = 1;
     defaultOptions.priority = 1;
     defaultOptions.media = "a4";
+    defaultOptions.inputSlot = "Internal";
     defaultOptions.fitplot = false;
     defaultOptions.convertToPS = false;
     
@@ -63,6 +64,11 @@ var argsFactory = function (options) {
     if (_.isString(options.media)) {
         args.push("-o");
         args.push("media=" + options.media);
+    }
+    
+    if (_.isString(options.inputSlot)) {
+        args.push("-o");
+        args.push("inputSlot=" + options.inputSlot);
     }
     
     if (true === options.fitplot) {
