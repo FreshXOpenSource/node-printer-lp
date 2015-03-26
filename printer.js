@@ -13,7 +13,6 @@ var optionsFactory = function (options) {
     defaultOptions.numCopies = 1;
     defaultOptions.priority = 1;
     defaultOptions.media = "a4";
-    defaultOptions.inputSlot = "Internal";
     defaultOptions.fitplot = false;
     defaultOptions.convertToPS = false;
     
