@@ -17,7 +17,7 @@ var Job = function (lp, identifier) {
             self.emit("end");
         }
         else {
-            self.emit("error", code);
+            self.emit("error", error);
         }
     });
     
