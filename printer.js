@@ -50,12 +50,12 @@ var argsFactory = function (options) {
         args.push(options.hostname);
     }
     
-    if (!_.isEmpty(options.numCopies) && _.isNumber(options.numCopies) && options.numCopies > 1) {
+    if (_.isNumber(options.numCopies) && options.numCopies > 1) {
         args.push("-n");
         args.push(options.numCopies);
     }
     
-    if (!_.isEmpty(options.priority) && _.isNumber(options.priority) && options.priority > 1) {
+    if (_.isNumber(options.priority) && options.priority > 1) {
         args.push("-q");
         args.push(options.priority);
     }
@@ -73,6 +73,11 @@ var argsFactory = function (options) {
     if (true === options.fitplot) {
         args.push("-o");
         args.push("fitplot");
+    }
+
+    if (_.isNumber(options.numberUp) && options.numberUp > 1) {
+        args.push("-o");
+        args.push("number-up=" + options.numberUp);
     }
     
     return args;
