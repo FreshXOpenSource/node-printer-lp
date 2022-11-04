@@ -74,6 +74,11 @@ var argsFactory = function (options) {
         args.push("-o");
         args.push("fitplot");
     }
+    
+    if (true === options.fitToPage) {
+        args.push("-o");
+        args.push("fit-to-page");
+    }
 
     if (_.isNumber(options.numberUp) && options.numberUp > 1) {
         args.push("-o");
