@@ -1,5 +1,11 @@
-==1.2.0==
+==1.4.0==
 * Add option for pdftops renderer.
+
+==1.3.0==
+* Add option for fit to page.
+
+==1.3.0==
+* Add option for numer up.
 
 ==1.0.3==
 * Change args management.
