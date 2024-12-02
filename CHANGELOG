@@ -1,3 +1,6 @@
+==1.2.0==
+* Add option for pdftops renderer.
+
 ==1.0.3==
 * Change args management.
 * Fix media size option & fitplot.
