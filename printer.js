@@ -15,6 +15,7 @@ var optionsFactory = function (options) {
     defaultOptions.media = "a4";
     defaultOptions.fitplot = false;
     defaultOptions.convertToPS = false;
+    defaultOptions.pdftopsRenderer = null;
     
     return _.defaults(options, defaultOptions);
 };
@@ -83,6 +84,11 @@ var argsFactory = function (options) {
     if (_.isNumber(options.numberUp) && options.numberUp > 1) {
         args.push("-o");
         args.push("number-up=" + options.numberUp);
+    }
+
+    if (_.isString(options.pdftopsRenderer)) {
+        args.push("-o");
+        args.push("pdftops-renderer=" + options.pdftopsRenderer);
     }
     
     return args;
